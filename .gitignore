@@ -1,0 +1,24 @@
+
+# Arquivos compilados
+*.class
+*.log
+
+# Pastas de compilação
+/build/
+/dist/
+/target/
+/nbbuild/
+/nbdist/
+
+# Configurações privadas do NetBeans
+/nbproject/private/
+
+# Configurações locais
+.env
+db.properties
+
+# Outros arquivos temporários
+.DS_Store
+.idea/
+.vscode/
+
