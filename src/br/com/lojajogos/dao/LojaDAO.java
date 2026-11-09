@@ -20,7 +20,7 @@ import java.util.List;
  *
  * @author fabio
  */
-public class LojaDao {
+public class LojaDAO {
     
     public void inserir(Loja loja) throws SQLException{
 

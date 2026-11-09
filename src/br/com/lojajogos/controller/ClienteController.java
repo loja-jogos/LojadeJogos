@@ -54,12 +54,25 @@ public class ClienteController {
         }
     }
 
-    private void validarDados(Cliente cliente) {
-        validarTexto(cliente.getNome(), "O nome do cliente é obrigatório.");
-        validarTexto(cliente.getCpf(), "O CPF do cliente é obrigatório.");
-        validarTexto(cliente.getTelefone(), "O telefone do cliente é obrigatório.");
-        validarTexto(cliente.getEmail(), "O email do cliente é obrigatório.");
+   private void validarDados(Cliente cliente) {
+
+    if (cliente.getNome() == null
+            || cliente.getNome().trim().length() < 3) {
+        throw new IllegalArgumentException(
+                "O nome deve possuir pelo menos 3 caracteres.");
     }
+
+    validarTexto(cliente.getCpf(),
+            "O CPF do cliente é obrigatório.");
+
+    if (!cliente.getCpf().matches("[0-9]{11}")) {
+        throw new IllegalArgumentException(
+                "O CPF deve possuir exatamente 11 números.");
+    }
+
+    validarTexto(cliente.getEmail(),
+            "O email do cliente é obrigatório.");
+}
 
     private void validarTexto(String valor, String mensagem) {
         if (valor == null || valor.trim().isEmpty()) {

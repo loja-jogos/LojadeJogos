@@ -27,7 +27,7 @@ public class DesenvolvedoraDAO {
     public void inserir(Desenvolvedora desenvolvedora) throws SQLException{
         
         String sql = "INSERT INTO desenvolvedora "
-                   + "(nome, pais, data_funfacao) "
+                   + "(nome, pais, data_fundacao) "
                    + "VALUES (?, ?, ?)";
         
         try(Connection conexao = Conexao.conectar();
@@ -101,7 +101,7 @@ public class DesenvolvedoraDAO {
     public boolean atualizar(Desenvolvedora desenvolvedora)
             throws SQLException{
         
-        String sql = "UPDATE desenvolvedora SET"
+        String sql = "UPDATE desenvolvedora SET "
                    + "nome = ?, pais = ?, data_fundacao = ? "
                    + "WHERE id_desenvolvedora = ?";
         

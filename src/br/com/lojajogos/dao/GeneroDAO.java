@@ -20,7 +20,7 @@ import java.util.List;
  *
  * @author fabio
  */
-public class GeneroDao {
+public class GeneroDAO {
     
      public void inserir(Genero genero) throws SQLException{
 
