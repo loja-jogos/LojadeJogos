@@ -28,7 +28,6 @@ public class ClienteController {
     }
 
     public List<Cliente> listar() throws SQLException {
-        // O DAO og. usa ListarTodos().
         return dao.ListarTodos();
     }
 
