@@ -24,8 +24,8 @@ public class ClienteDAO {
     public void inserir(Cliente cliente) throws SQLException{
         
         String sql = "INSERT INTO cliente "
-                + "(nome, cpf, telefone, email) "
-                + "VALUES (?, ?, ?, ?)";
+                   + "(nome, cpf, telefone, email) "
+                   + "VALUES (?, ?, ?, ?)";
         
         try(Connection conexao = Conexao.conectar();
                 PreparedStatement stmt = conexao.prepareStatement(
@@ -87,9 +87,12 @@ public class ClienteDAO {
     public boolean atualizar(Cliente cliente) throws SQLException{
         
         String sql = "UPDATE cliente SET "
-                + "nome = ?, cpf = ?, telefone = ?, email = ? "
-                + "WHERE id_cliente = ?";
-        
+                   + "nome = ?, "
+                   + "cpf = ?, "
+                   + "telefone = ?, "
+                   + "email = ? "
+                   + "WHERE id_cliente = ?";
+                     
         try(Connection conexao = Conexao.conectar();
             PreparedStatement stmt = conexao.prepareStatement(sql)){
             
