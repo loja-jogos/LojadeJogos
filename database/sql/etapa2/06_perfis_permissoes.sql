@@ -1,0 +1,37 @@
+-- Executar como DBA; banco padrão esperado loja_jogos. Aplicar após 07_views.sql.
+CREATE ROLE IF NOT EXISTS 'r_loja_admin','r_loja_operador','r_loja_auditor';
+-- Não conceder DDL, GRANT OPTION ou escrita na auditoria.
+GRANT SELECT,INSERT,UPDATE,DELETE ON loja_jogos.desenvolvedora TO 'r_loja_admin';
+GRANT SELECT,INSERT,UPDATE,DELETE ON loja_jogos.loja TO 'r_loja_admin';
+GRANT SELECT,INSERT,UPDATE,DELETE ON loja_jogos.cliente TO 'r_loja_admin';
+GRANT SELECT,INSERT,UPDATE,DELETE ON loja_jogos.funcionario TO 'r_loja_admin';
+GRANT SELECT,INSERT,UPDATE,DELETE ON loja_jogos.jogo TO 'r_loja_admin';
+GRANT SELECT,INSERT,UPDATE,DELETE ON loja_jogos.genero TO 'r_loja_admin';
+GRANT SELECT,INSERT,UPDATE,DELETE ON loja_jogos.jogo_genero TO 'r_loja_admin';
+GRANT SELECT,INSERT,UPDATE,DELETE ON loja_jogos.forma_pagamento TO 'r_loja_admin';
+GRANT SELECT,INSERT,UPDATE,DELETE ON loja_jogos.dlc TO 'r_loja_admin';
+GRANT SELECT,INSERT,UPDATE,DELETE ON loja_jogos.estoque TO 'r_loja_admin';
+GRANT SELECT,INSERT,UPDATE,DELETE ON loja_jogos.venda TO 'r_loja_admin';
+GRANT SELECT,INSERT,UPDATE,DELETE ON loja_jogos.item_venda TO 'r_loja_admin';
+GRANT SELECT,INSERT,UPDATE,DELETE ON loja_jogos.biblioteca TO 'r_loja_admin';
+GRANT SELECT,INSERT,UPDATE,DELETE ON loja_jogos.aquisicao_dlc TO 'r_loja_admin';
+GRANT SELECT,INSERT,UPDATE,DELETE ON loja_jogos.usuario_app TO 'r_loja_admin';
+GRANT SELECT ON loja_jogos.cliente TO 'r_loja_operador';
+GRANT SELECT ON loja_jogos.funcionario TO 'r_loja_operador';
+GRANT SELECT ON loja_jogos.jogo TO 'r_loja_operador';
+GRANT SELECT ON loja_jogos.estoque TO 'r_loja_operador';
+GRANT SELECT ON loja_jogos.forma_pagamento TO 'r_loja_operador';
+GRANT SELECT ON loja_jogos.biblioteca TO 'r_loja_operador';
+GRANT SELECT ON loja_jogos.dlc TO 'r_loja_operador';
+GRANT SELECT ON loja_jogos.venda TO 'r_loja_operador';
+GRANT SELECT ON loja_jogos.item_venda TO 'r_loja_operador';
+GRANT SELECT ON loja_jogos.aquisicao_dlc TO 'r_loja_operador';
+GRANT INSERT ON loja_jogos.venda TO 'r_loja_operador';
+GRANT INSERT ON loja_jogos.item_venda TO 'r_loja_operador';
+GRANT INSERT ON loja_jogos.biblioteca TO 'r_loja_operador';
+GRANT INSERT ON loja_jogos.aquisicao_dlc TO 'r_loja_operador';
+GRANT UPDATE(status) ON loja_jogos.venda TO 'r_loja_operador';
+GRANT UPDATE(quantidade_disponivel) ON loja_jogos.estoque TO 'r_loja_operador';
+GRANT SELECT ON loja_jogos.vw_clientes_restrita TO 'r_loja_auditor';
+GRANT SELECT ON loja_jogos.auditoria TO 'r_loja_auditor','r_loja_admin';
+GRANT SELECT ON loja_jogos.vw_resumo_vendas_cliente TO 'r_loja_admin';
